@@ -105,36 +105,30 @@
 <section class="book" id="book">
     <h1 class="heading"><span>Cotiza con nosotros</span></h1>
     <div class="row">
-        <form   class="form-register"
-                action="https://formspree.io/f/xjkvwdqy"
-                method="POST"
-        >
+        <form class="form-register"
+              action="https://formspree.io/f/xjkvwdqy"
+              method="POST">
             <h3>Ponerse en contacto</h3>
             <div class="inputbox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="nombre">
+                <input type="text" name="nombre" placeholder="Nombre" required>
             </div>
             <div class="inputbox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="email">
+                <input type="email" name="email" placeholder="Email" required>
             </div>
             <div class="inputbox">
                 <span class="fas fa-phone"></span>
-                <input type="number" placeholder="numero">
+                <input type="number" name="numero" placeholder="Número" required>
             </div>
             <div class="inputbox">
                 <span class="fas fa-notes-medical"></span>
-                <input type="text" placeholder="Características de la PC de tus sueños">
+                <input type="text" name="descripcion" placeholder="Características de la PC de tus sueños" required>
             </div>
-            <input type="submit" input name="text" value="Enviar" class="btn">
+            <input type="submit" value="Enviar" class="btn">
         </form>
-
-    </div>
     </div>
 </section>
-
-
-
 <!-- Sección agenda una cita finaliza -->
 
 <!-- Sección de mapa inicia -->
