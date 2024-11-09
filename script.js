@@ -9,20 +9,6 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 }
 
-// Limpieza del formulario al cargar la página
-window.addEventListener('load', () => {
-    const form = document.querySelector('.form-register');
-    form.reset(); // Limpia el formulario al cargar la página
-});
-
-// Limpieza del formulario al regresar a la página desde el caché
-window.addEventListener('pageshow', (event) => {
-    const form = document.querySelector('.form-register');
-    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
-        form.reset(); // Limpia el formulario al regresar desde el caché
-    }
-});
-
 // Manejo del envío del formulario
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-register');
