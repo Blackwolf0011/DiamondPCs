@@ -9,16 +9,18 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 }
 
+// Limpieza del formulario al regresar a la página
+window.addEventListener('pageshow', (event) => {
+    const form = document.querySelector('.form-register');
+    if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+        // La página fue cargada desde el caché del navegador
+        form.reset(); // Limpia el formulario
+    }
+});
+
 // Manejo del envío del formulario
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-register');
-
-    // Limpia el formulario si se vuelve a la página
-    window.onpageshow = (event) => {
-        if (event.persisted) { // Verifica si la página fue restaurada desde el caché del navegador
-            form.reset(); // Limpia el formulario
-        }
-    };
 
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Evita el envío automático del formulario
