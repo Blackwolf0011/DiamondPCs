@@ -13,6 +13,13 @@ window.onscroll = () => {
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-register');
 
+    // Limpia el formulario si se vuelve a la página
+    window.onpageshow = (event) => {
+        if (event.persisted) { // Verifica si la página fue restaurada desde el caché del navegador
+            form.reset(); // Limpia el formulario
+        }
+    };
+
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Evita el envío automático del formulario
 
