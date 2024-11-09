@@ -42,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
             body: new URLSearchParams(new FormData(form)).toString(),
         })
         .then(response => {
-            if (response.ok) {
+            if (response.ok || response.status === 302 || response.status === 201) {
                 alert("Formulario enviado exitosamente");
                 form.reset(); // Limpia el formulario después de enviarlo
             } else {
-                alert("Error al enviar el formulario");
+                alert("Formulario enviado, pero hubo un problema con la respuesta del servidor.");
             }
         })
         .catch(error => {
