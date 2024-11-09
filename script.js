@@ -9,28 +9,25 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 }
 
-// Forzar un refresh al regresar al sitio desde Formspree
-window.addEventListener('pageshow', (event) => {
-    // Verifica si la página fue restaurada desde el caché
-    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
-        window.location.reload(); // Forzar recarga de la página
-    }
-});
-
 // Manejo del envío del formulario
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-register');
 
+    // Limpia el formulario si se vuelve a la página
+    window.onpageshow = (event) => {
+        if (event.persisted) { // Verifica si la página fue restaurada desde el caché del navegador
+            form.reset(); // Limpia el formulario
+        }
+    };
+
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Evita el envío automático del formulario
 
-        // Obtiene los valores del formulario
         const nombre = form.querySelector('input[name="nombre"]').value.trim();
         const email = form.querySelector('input[name="email"]').value.trim();
         const numero = form.querySelector('input[name="numero"]').value.trim();
         const descripcion = form.querySelector('input[name="descripcion"]').value.trim();
 
-        // Validación de campos vacíos
         if (!nombre || !email || !numero || !descripcion) {
             alert("Por favor, completa todos los campos antes de enviar.");
             return;
